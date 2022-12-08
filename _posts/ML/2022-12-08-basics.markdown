@@ -5,8 +5,8 @@ date: 2022-12-08 19:30:30 +0900
 category: ML
 ---
 
-환경은 구글 Colab의 Jupyter Notebook이다, 아래의 코드는 스파르타 코딩 클럽의 1주차 숙제를 바탕으로 구성되어진 것들이다.
-
+환경은 구글 Colab의 Jupyter Notebook이다. <br /> 
+아래의 코드는 스파르타 코딩 클럽의 1주차 숙제를 바탕으로 구성되어진 것들이다.
 
 ```py
 import os
@@ -20,6 +20,7 @@ import seaborn as sns
 from sklearn.model_selection import train_test_split
 ```
 
+<br />
 
 Kaggle에서 API를 받고 아래와 같이 기입해주면 된다.
 

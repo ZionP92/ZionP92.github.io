@@ -8,7 +8,7 @@ permalink: /about&contact/
 
 LL.M. degree at Shanghai Jiaotong Univ
 
-## License & Certifications 
+## Licenses & Certifications 
 
 Data Science Professional Certificate authorized by IBM <br />
 Certificate for International Human Rights Law from University of Louvain
