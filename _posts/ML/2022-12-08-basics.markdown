@@ -93,14 +93,15 @@ print(y_data.shape)
 그래서 구글링하여 알아낸 바로 Train, Validation, Test를 분할하여 진행하였다.
 분할에는 sklearn을 이용, 단순히 두번에 걸쳐 분할하면 된다.(딱히 한번에 두 번 쪼개는 건 없는 듯)
 아래는 처음 분할시 20% 정도로 나누고 이차 분할에 80%의 25% 
-즉, 전체의 20% 정도로 검증과 테스트 세트를 균일히 나눈 방법이다.
+즉, 전체의 20% 정도로 검증과 테스트 세트를 균일히 나눈 방법이다.<br />
+추가로 random_state는 색인 쯤으로 여기면 될 것 같다. 아무 번호나 기입하여 사용하면 되고 매번 무작위가 되는 것을 방지하여 같은 번호를 넣으면 같은 결과가 나온다.
 
 ```py
 x_train, x_test, y_train, y_test = train_test_split(x_data, y_data, test_size=0.2, random_state=30)
 x_train, x_val, y_train, y_val = train_test_split(x_train, y_train, test_size=0.25, random_state=30)
+print(x_train.shape, x_val.shape, x_test.shape)
+print(y_train.shape, y_val.shape, y_test.shape)
 ```
-
-위의 random_state는 색인 쯤으로 여기면 될 것 같다. 아무 번호나 기입하여 사용하면 되고 매번 무작위가 되는 것을 방지하여 같은 번호를 넣으면 같은 결과가 나온다.
 
 <img src="../../../../img/ML/ML-basics-006.png" width=200>
 
