@@ -1,0 +1,23 @@
+linkedin:
+  id: '/in/sion-park-23947118a'
+  href: 'https://www.linkedin.com'
+  title: 'LinkedIn'
+  fa-icon: 'fa fa-linkedin-square'
+
+github:
+  id: 'ZionP92'
+  href: 'https://github.com/'
+  title: 'GitHub'
+  fa-icon: 'fa-github-square'
+
+email:
+  id: 'ZionP92@yahoo.com'
+  href: 'mailto:'
+  title: 'Email'
+  fa-icon: 'fa-envelope-square'
+
+rss:
+  id: ''
+  href: 'https://zionp92.github.io/feed.xml'
+  title: 'rss'
+  fa-icon: 'fa-solid fa-rss'

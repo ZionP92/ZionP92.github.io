@@ -23,7 +23,7 @@ email: ZionP92@yahoo.com
 description: >- # this means to ignore newlines until "baseurl:"
   Learning & Struggling Trails
 # baseurl: "/" # the subpath of your site, e.g. /blog
-# url: "http://ejjoo.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://zionp92.github.io"
 github_username: ZionP92
 highlighter: rouge
 svg:
