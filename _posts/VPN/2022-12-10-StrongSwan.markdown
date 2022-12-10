@@ -55,7 +55,7 @@ ipsec pki --gen --type rsa --size 4096 --outform pem > ~/pki/private/server-key.
 ```sh
 ipsec pki --pub --in ~/pki/private/server-key.pem --type rsa | ipsec pki --issue --lifetime 1825 \
     --cacert ~/pki/cacerts/ca-cert.pem --cakey ~/pki/private/ca-key.pem \
-    --dn "CN=도메인이나_IP" --san "도메인이나_IP" \
+    --dn "CN=서버_도메인이나_IP" --san "서버_도메인이나_IP" \
     --flag serverAuth --flag ikeIntermediate --outform pem > ~/pki/certs/server-cert.pem
 ```
 
@@ -78,7 +78,7 @@ sudo nano /etc/ipsec.conf
 
 <br />
 
-[파라미터]를 참조해 설정해 주면 된다.
+다른 부분들은 [파라미터]를 참조해 설정해 주면 되고 leftid 부분 변경은 잊지말자
 
 ```
 config setup
@@ -96,7 +96,7 @@ conn ikev2-vpn
     dpddelay=300s
     rekey=no
     left=%any
-    leftid=@server_domain_or_IP
+    leftid=@서버_도메인이나_IP
     leftcert=server-cert.pem
     leftsendcert=always
     leftsubnet=0.0.0.0/0
