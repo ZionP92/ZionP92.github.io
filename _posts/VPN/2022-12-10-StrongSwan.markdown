@@ -78,7 +78,7 @@ sudo nano /etc/ipsec.conf
 
 <br />
 
-다른 부분들은 [파라미터]를 참조해 설정해 주면 되고 leftid 부분 변경은 잊지말자
+다른 부분들은 [파라미터]를 참조해 설정해 주면 되고 leftid 부분 변경은 잊지 말자
 
 ```
 config setup
