@@ -1,0 +1,155 @@
+---
+layout: post
+title: 이진 논리 회귀
+date: 2022-12-18 19:26:53 +0900
+category: ML
+---
+
+환경은 구글 Colab의 Jupyter Notebook이다. <br /> 
+아래의 코드는 스파르타 코딩 클럽의 2주차 숙제를 바탕으로 구성되어진 것들이다.
+
+```py
+import os
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.optimizers import Adam, SGD
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt 
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+os.environ['KAGGLE_USERNAME'] = 'MY_USERNAME'
+os.environ['KAGGLE_KEY'] = '###########MY_KEY###############'
+```
+
+<br />
+
+이번엔 당뇨 데이터이다.
+```bash
+!kaggle datasets download -d kandij/diabetes-dataset
+!unzip diabetes-dataset.zip
+```
+
+<br />
+
+데이터 구성을 한번 확인해보고
+```py
+df = pd.read_csv('diabetes2.csv')
+df.head(5)
+```
+<img src="../../../../img/ML/ML-logistic-001.png" width=700>
+
+<br />
+
+환자와 정상인 출력값을 보기 쉽게 그래프로 그려본다
+```py
+sns.countplot(x=df['Outcome'])
+```
+
+<img src="../../../../img/ML/ML-logistic-002.png" width=450>
+
+<br />
+
+X축 값이 너무 광범위하니 내 나름대로 볼 수 있게 조정을 했다.
+그냥 하면 주피터 특성상 text 출력 값이 X축 글자를 회전 시키는 코드에서 출력이 된다.
+번잡하니 방지하기 위해 세미콜론을 추가해줬다.
+```py
+plt.figure(figsize=(100,30))
+sns.set(font_scale=2.4)
+
+pedigree = sns.countplot(x='BMI', hue='Outcome', data=df)
+pedigree.set_xticklabels(pedigree.get_xticklabels(), rotation=90, ha="right");
+```
+
+<img src="../../../../img/ML/ML-logistic-003.png" width=2800>
+
+<br />
+
+빈 데이터가 있는지 보고 있으면 "df = df.dropna()" 이 코드로 드랍해버리면 된다.
+하지만 보다시피 없으니 패스
+```py
+print(df.isnull().sum())
+```
+
+<img src="../../../../img/ML/ML-logistic-004.png" width=240>
+
+<br />
+
+인자로 쓸 X값들을 비교할 부분으로부터 분리한다.
+```py
+x_data = df.drop(columns=['Outcome'], axis=1)
+x_data = x_data.astype(np.float32)
+
+x_data.head(5)
+```
+
+<img src="../../../../img/ML/ML-logistic-005.png" width=700>
+
+```py
+y_data = df[['Outcome']]
+y_data = y_data.astype(np.float32)
+
+y_data.head(5)
+```
+
+<img src="../../../../img/ML/ML-logistic-006.png" width=85>
+
+<br />
+
+산만한 데이터들을 쓰기 좋게 표준화를 진행 즉, 평균은 0으로 맞추고 표준편차는 1로 만든다.
+values는 표준화전이고 scaled는 후의 값이다.
+```py
+scaler = StandardScaler()
+x_data_scaled = scaler.fit_transform(x_data)
+
+print(x_data.values[0])
+print(x_data_scaled[0])
+```
+
+<img src="../../../../img/ML/ML-logistic-007.png" width=550>
+
+<br />
+
+데이터 셋 분할 후
+```py
+x_train, x_val, y_train, y_val = train_test_split(x_data, y_data, test_size=0.2, random_state=33)
+
+print(x_train.shape, x_val.shape)
+print(y_train.shape, y_val.shape)
+```
+
+<img src="../../../../img/ML/ML-logistic-008.png" width=130>
+
+<br />
+
+학습시키면 된다. 
+Dense 줄 1은 선형회귀를 한번 실행하는 거고 그 다음 sigmoid를 실행하라는 의미이다.
+Logistic regression에서 binary_corssentropy만 보고는 학습이 얼마나 잘되었는지 유추하기 힘들기 떄문에 
+metrics에 정확도를 추가로 부여한다.(1에 가까울수록 정확도가 100프로에 가까워지고 0에 가까울수록 정확도가 0프로에 가까워짐, P-Value 인듯)
+
+```py
+model = Sequential([
+  Dense(1, activation='sigmoid')
+])
+
+model.compile(loss='binary_crossentropy', optimizer=Adam(learning_rate=0.01), metrics=['acc'])
+
+model.fit(
+    x_train,
+    y_train,
+    validation_data=(x_val, y_val),
+    epochs=30
+)
+```
+
+<img src="../../../../img/ML/ML-logistic-009.png" width=800>
+
+<br />
+
+조금씩 난이도가 올라가는 것 같다. 
+Dense는 이번주차에 사용되어서 난해함이 조금 가셨다.
+결과 값을 기준에 맞춰서 설정하면 되는 부분으로 여기처럼 당뇨냐 아니냐를 거론할 때는 1을 쓰지만
+종류가 많아져서 분류 클래스가 많아 기냐 아니냐가 아닌 경우 예를 들어 동물 종류 - 개, 고양이, 소, 말 이렇게 4개를 분류하면
+4를 사용한다.
