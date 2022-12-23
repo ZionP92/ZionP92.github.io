@@ -339,3 +339,18 @@ footer {
 .social-media-icons {
 	margin-right: 2px;
 }
+
+figure {
+	display: table;
+}
+
+figure img{
+	display: block;
+	max-width: 100%;
+}
+
+figcaption {
+	display: table-caption;
+	caption-side: bottom;
+	padding-left: 50%;
+}
