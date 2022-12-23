@@ -169,7 +169,7 @@ history = model.fit(
 )
 ```
 
-<img src="../../../../img/ML/ML-handwritten-digits-009.png" width=1200>
+<img src="../../../../img/ML/ML-handwritten-digits-009.png" width=1000>
 
 나는 이번엔 SGD를 의도적으로 사용했다. Adam으로 Dense값을 조절해서 과적합도 잡아보고 했지만 오차가 의미 있는 수준으로 줄지도 않을 뿐더러 테스트 값에 비슷하게 도달할 수 조차 없어서 어디를 조절해야 할지 고민하다가 저번에 검색할 때 Adam은 이미지 처리에 있어선 SGD보다 좋지 않다는 평가가 있다는 말이 생각이 나서 바꾸어 봤더니 오히려 이번 건에서 만큼은 아주 미약하게나마 테스트 정확도가 학습 정확도보다 높게 나올정도로 잭팟이다.
 
@@ -183,12 +183,12 @@ plt.plot(history.history['loss'])
 plt.plot(history.history['val_loss'])
 ```
 <figure>
-    <img src="../../../../img/ML/ML-handwritten-digits-010.png" width=1000>
+    <img src="../../../../img/ML/ML-handwritten-digits-010.png" width=800>
     <figcaption>SGD</figcaption>
 </figure>
 
 <figure>
-    <img src="../../../../img/ML/ML-handwritten-digits-012.png" width=1000>
+    <img src="../../../../img/ML/ML-handwritten-digits-012.png" width=800>
     <figcaption>Adam</figcaption>
 </figure>
 
@@ -199,12 +199,12 @@ plt.plot(history.history['val_acc'])
 ```
 
 <figure>
-    <img src="../../../../img/ML/ML-handwritten-digits-011.png" width=1000>
+    <img src="../../../../img/ML/ML-handwritten-digits-011.png" width=800>
     <figcaption>SGD</figcaption>
 </figure>
 
 <figure>
-    <img src="../../../../img/ML/ML-handwritten-digits-013.png" width=1000>
+    <img src="../../../../img/ML/ML-handwritten-digits-013.png" width=800>
     <figcaption>Adam</figcaption>
 </figure>
 
