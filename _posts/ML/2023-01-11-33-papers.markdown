@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 33개 논문의 사적 축약
+title: 33개 논문의 개괄적 요약
 date: 2023-01-11 17:23:44 +0900
 category: ML
 ---
