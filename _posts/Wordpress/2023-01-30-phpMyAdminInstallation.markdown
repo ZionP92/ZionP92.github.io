@@ -1,7 +1,7 @@
 ---
 layout: post
 title: phpMyAdmin 설치하기
-date: 2022-01-30 06:47:00 +0900
+date: 2023-01-30 06:47:00 +0900
 category: Wordpress
 ---
 
