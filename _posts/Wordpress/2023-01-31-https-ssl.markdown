@@ -6,7 +6,7 @@ category: Wordpress
 ---
 
 앞선 포스트들에 이어 Let's Encrypt의 인증서를 사용하였으므로 다른 환경 구성들은 동일하다.
-구글링을 해보면 보통 Ngnix를 많이쓰지만 이미 아파치를 쓰고있으니 그에 맞는 패키지를 설치 하도록 한다.
+구글링을 해보면 보통 Nginx를 많이쓰지만 이미 아파치를 쓰고있으니 그에 맞는 패키지를 설치 하도록 한다.
 
 ```sh
 sudo apt install certbot python3-certbot-apache
