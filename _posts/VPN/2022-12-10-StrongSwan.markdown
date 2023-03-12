@@ -109,6 +109,13 @@ conn ikev2-vpn
     leftcert=server-cert.pem
     leftsendcert=always
     leftsubnet=0.0.0.0/0
+    right=%any
+    rightid=%any
+    rightauth=eap-mschapv2
+    rightsourceip=10.10.10.0/24
+    rightdns=8.8.8.8,8.8.4.4
+    rightsendcert=never
+    eap_identity=%identity
 ```
 
 필자는 후술 하겠지만, 윈도우 설정을 잘 못해 애먹은 적이 있었다. 증상은 10분 이내로 연결이 끊기는 현상이었는데, 그때 당시 조사하면서 알아낸 참고 부분들이다.<br />
