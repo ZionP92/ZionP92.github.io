@@ -88,6 +88,7 @@ sudo nano /etc/ipsec.conf
 <br />
 
 다른 부분들은 [파라미터]를 참조해 설정해 주면 되고 leftid 부분 변경은 잊지 말자
+주의!! leftid 부분에 ip로 하면 @ 빼고 ip만 넣어야함 계속 다 테스트 해본건 아니지만 어떤 경우엔 @가 있으면 ios기기에서 접속이 안됨
 
 ```
 config setup
