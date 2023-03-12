@@ -18,7 +18,7 @@ sudo apt install strongswan strongswan-pki libcharon-extra-plugins libcharon-ext
 디렉토리를 /etc/ipsec.d 하위 디렉토리 몇몇 구성에 맞추어 생성한 후 권한을 당사자에게만으로 제한한다.
 
 ```sh
-mkdir -p ~/pki/{cacerts,certs,priavte}
+mkdir -p ~/pki/{cacerts,certs,private}
 chmod 700 ~/pki
 ```
 
@@ -30,6 +30,15 @@ Privacy Enhanced Mail(PEM) 파일은 Public Key Infrastructure(PKI) 파일 타�
 ```sh
 ipsec pki --gen --type rsa --size 4096 --outform pem > ~/pki/private/ca-key.pem
 ```
+
+여기서 만약 아래와 같은 에러가 발생한다면 
+
+```
+TPM 2.0 - could not load "libtss2-tcti-tabrmd.so.0"
+plugin 'tpm': failed to load - tpm_plugin_create returned NULL
+```
+
+libtss2-tcti-tabrmd0 패키지를 설치하면 된다.
 
 <br />
 
@@ -225,7 +234,7 @@ sudo ufw enable
 
 관리하기 쉽게 인증서를 현재 경로로 복사해 놓자
 ```sh
-cat /etc/ipsec.d/cacerts/ca-cert/pem >> ca-cert.cer
+cat /etc/ipsec.d/cacerts/ca-cert.pem >> ca-cert.cer
 ```
 
 <br />
