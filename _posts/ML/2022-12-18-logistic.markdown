@@ -39,7 +39,7 @@ os.environ['KAGGLE_KEY'] = '###########MY_KEY###############'
 df = pd.read_csv('diabetes2.csv')
 df.head(5)
 ```
-<img src="../../../../img/ML/ML-logistic-001.png" width=700>
+<img src="../../../../img/ML/logistic_001.png" width=700>
 
 <br />
 
@@ -48,7 +48,7 @@ df.head(5)
 sns.countplot(x=df['Outcome'])
 ```
 
-<img src="../../../../img/ML/ML-logistic-002.png" width=450>
+<img src="../../../../img/ML/logistic_002.png" width=450>
 
 <br />
 
@@ -63,7 +63,7 @@ pedigree = sns.countplot(x='BMI', hue='Outcome', data=df)
 pedigree.set_xticklabels(pedigree.get_xticklabels(), rotation=90, ha="right");
 ```
 
-<img src="../../../../img/ML/ML-logistic-003.png" width=2800>
+<img src="../../../../img/ML/logistic_003.png" width=2800>
 
 <br />
 
@@ -73,7 +73,7 @@ pedigree.set_xticklabels(pedigree.get_xticklabels(), rotation=90, ha="right");
 print(df.isnull().sum())
 ```
 
-<img src="../../../../img/ML/ML-logistic-004.png" width=240>
+<img src="../../../../img/ML/logistic_004.png" width=240>
 
 <br />
 
@@ -85,7 +85,7 @@ x_data = x_data.astype(np.float32)
 x_data.head(5)
 ```
 
-<img src="../../../../img/ML/ML-logistic-005.png" width=700>
+<img src="../../../../img/ML/logistic_005.png" width=700>
 
 ```py
 y_data = df[['Outcome']]
@@ -94,7 +94,7 @@ y_data = y_data.astype(np.float32)
 y_data.head(5)
 ```
 
-<img src="../../../../img/ML/ML-logistic-006.png" width=85>
+<img src="../../../../img/ML/logistic_006.png" width=85>
 
 <br />
 
@@ -108,7 +108,7 @@ print(x_data.values[0])
 print(x_data_scaled[0])
 ```
 
-<img src="../../../../img/ML/ML-logistic-007.png" width=550>
+<img src="../../../../img/ML/logistic_007.png" width=550>
 
 <br />
 
@@ -120,7 +120,7 @@ print(x_train.shape, x_val.shape)
 print(y_train.shape, y_val.shape)
 ```
 
-<img src="../../../../img/ML/ML-logistic-008.png" width=130>
+<img src="../../../../img/ML/logistic_008.png" width=130>
 
 <br />
 
@@ -144,7 +144,7 @@ model.fit(
 )
 ```
 
-<img src="../../../../img/ML/ML-logistic-009.png" width=800>
+<img src="../../../../img/ML/logistic_009.png" width=800>
 
 <br />
 

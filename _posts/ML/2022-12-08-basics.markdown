@@ -45,7 +45,7 @@ os.environ['KAGGLE_KEY'] = '###########MY_KEY###############'
 df = pd.read_csv('Salary.csv')
 df.head(10)
 ```
-<img src="../../../../img/ML/ML-basics-001.png" width=200>
+<img src="../../../../img/ML/basics_001.png" width=200>
 
 <br />
 
@@ -54,7 +54,7 @@ df.head(10)
 print(df.shape)
 ```
 
-<img src="../../../../img/ML/ML-basics-002.png" width=80>
+<img src="../../../../img/ML/basics_002.png" width=80>
 
 <br />
 
@@ -63,7 +63,7 @@ print(df.shape)
 sns.pairplot(df, x_vars = ['YearsExperience'], y_vars = ['Salary'], height=5)
 ```
 
-<img src="../../../../img/ML/ML-basics-003.png" width=360>
+<img src="../../../../img/ML/basics_003.png" width=360>
 
 <br />
 
@@ -75,7 +75,7 @@ print(x_data.shape)
 print(y_data.shape)
 ```
 
-<img src="../../../../img/ML/ML-basics-004.png" width=80>
+<img src="../../../../img/ML/basics_004.png" width=80>
 
 결과 값이 하나가 콤마로 끝나는데 x는 dataframe인데 y를 series 형태로 불러와서 그렇다, 실험해보니 둘다 dataframe 형식으로 해도 별 에러 없이 잘 된다 하지만 내 생각에 여기는 지금 한정적 데이터만 가지고하니 아무래도 상관없지만, 그냥 하라는대로 후보정하는 편이 편할 것 같다. <br />
 둘이 형식이 맞게 reshape을 이용해 고쳐준다, -1은 알아서 맞추라는 뜻이고 뒤의 1은 1로 정해준 것이다.
@@ -86,7 +86,7 @@ print(x_data.shape)
 print(y_data.shape)
 ```
 
-<img src="../../../../img/ML/ML-basics-005.png" width=80>
+<img src="../../../../img/ML/basics_005.png" width=80>
 
 <br />
 
@@ -104,7 +104,7 @@ print(x_train.shape, x_val.shape, x_test.shape)
 print(y_train.shape, y_val.shape, y_test.shape)
 ```
 
-<img src="../../../../img/ML/ML-basics-006.png" width=200>
+<img src="../../../../img/ML/basics_006.png" width=200>
 
 <br />
 
@@ -118,7 +118,7 @@ model.compile(loss='mean_absolute_error', optimizer=SGD(learning_rate=100))
 model.fit(x_train, y_train, validation_data=(x_val, y_val), epochs=1500)
 ```
 
-<img src="../../../../img/ML/ML-basics-007.png" width=800>
+<img src="../../../../img/ML/basics_007.png" width=800>
 
 위는 학습 마지막 부분인데, 한 epcho 850 정도 될 때부터 거의 변화가 없어졌다, 1000번만 잡아도 됐을 뻔 했다.
 
@@ -134,7 +134,7 @@ plt.scatter(x_test, y_pred, color='r')
 plt.show()
 ```
 
-<img src="../../../../img/ML/ML-basics-008.png" width=420>
+<img src="../../../../img/ML/basics_008.png" width=420>
 
 결과 값이 얼추 비슷하게 나왔다 역시 사람이든 기계든 정확하게 많이 배워야 한다.
 

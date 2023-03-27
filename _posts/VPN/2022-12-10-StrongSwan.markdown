@@ -61,6 +61,8 @@ ipsec pki --gen --type rsa --size 4096 --outform pem > ~/pki/private/server-key.
 
 생성하였으면 지정해 준다.(앞에서도 나온 dn은 distinguished name, cn은 common name, san은 subject alternate name의 약자)
 
+*주의: 만약 도메인이 아닌 IP를 기입할 경우 클라이언트에서 TLS(Transport Layer Security, 전송 계층 보안) 인증서가 DNS와 IP를 다 갖고 있는지 체크하는 경우가 있기 때문에 다음과 같이 해당 부분을 변경해 입력해야 한다) &nbsp;&nbsp;&nbsp; `--dn "CN=서버_도메인이나_IP" --san @IP --san "서버_도메인이나_IP"`
+
 ```sh
 ipsec pki --pub --in ~/pki/private/server-key.pem --type rsa | ipsec pki --issue --lifetime 1825 \
     --cacert ~/pki/cacerts/ca-cert.pem --cakey ~/pki/private/ca-key.pem \
@@ -247,9 +249,7 @@ cat /etc/ipsec.d/cacerts/ca-cert.pem >> ca-cert.cer
 
 <br />
 
-SFTP 등으로 사용할 기기로 옮긴다. 본인은 PSCP를 사용하여 윈도우로 옮겨 사용했다.(pscp나 putty 사용법도 곧 올려보려... ~~시간이 언제 될려나~~)
-우선 서버쪽에서 할일은 끝났고 이제 윈도우와 IOS기기에 적용하는 법이다.(곧 추가해서 올릴 계획) Mac환경에서도 단순하게 적용가능하나 현재 소유한 Mac이 고장나 하나를 새로 장만하면 그때 스크린샷까지 보강해서 올리려 한다.
-안드로이드는 안타깝지만 써보질 않아서 잘 모르겠다. 얘기를 듣기론 안드로이드만 StrongSwan용 어플을 통해야한다고 한다.
+SFTP 등으로 사용할 기기로 옮긴다. 본인은 PSCP를 사용하여 윈도우로 옮겨 사용했다.
 
 <br />
 

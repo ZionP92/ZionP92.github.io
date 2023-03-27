@@ -43,7 +43,7 @@ train_df = pd.read_csv('mnist_train.csv')
 
 train_df.head()
 ```
-<img src="../../../../img/ML/ML-handwritten-digits-001.png" width=800>
+<img src="../../../../img/ML/handwritten_digits_001.png" width=800>
 
 <br />
 
@@ -54,7 +54,7 @@ test_df = pd.read_csv('mnist_test.csv')
 
 test_df.head()
 ```
-<img src="../../../../img/ML/ML-handwritten-digits-002.png" width=800>
+<img src="../../../../img/ML/handwritten_digits_002.png" width=800>
 
 <br />
 
@@ -66,7 +66,7 @@ sns.countplot(train_df['label'])
 plt.show()
 ```
 
-<img src="../../../../img/ML/ML-handwritten-digits-003.png" width=480>
+<img src="../../../../img/ML/handwritten_digits_003.png" width=480>
 
 <br />
 
@@ -85,7 +85,7 @@ print(x_train.shape, y_train.shape)
 print(x_test.shape, y_test.shape)
 ```
 
-<img src="../../../../img/ML/ML-handwritten-digits-004.png" width=270>
+<img src="../../../../img/ML/handwritten_digits_004.png" width=270>
 
 <br />
 
@@ -98,7 +98,7 @@ plt.imshow(x_train[index].reshape((28, 28)), cmap='gray')
 plt.show()
 ```
 
-<img src="../../../../img/ML/ML-handwritten-digits-005.png" width=270>
+<img src="../../../../img/ML/handwritten_digits_005.png" width=270>
 
 <br />
 
@@ -112,7 +112,7 @@ y_test = encoder.fit_transform(y_test).toarray()
 print(y_train.shape)
 ```
 
-<img src="../../../../img/ML/ML-handwritten-digits-006.png" width=160>
+<img src="../../../../img/ML/handwritten_digits_006.png" width=160>
 
 <br />
 
@@ -124,7 +124,7 @@ print(y_train.shape)
 print(encoder.categories_)
 ```
 
-<img src="../../../../img/ML/ML-handwritten-digits-007.png" width=700>
+<img src="../../../../img/ML/handwritten_digits_007.png" width=700>
 
 <br />
 
@@ -154,7 +154,7 @@ model.compile(loss='categorical_crossentropy', optimizer=SGD(lr=0.001), metrics=
 model.summary()
 ```
 
-<img src="../../../../img/ML/ML-handwritten-digits-008.png" width=600>
+<img src="../../../../img/ML/handwritten_digits_008.png" width=600>
 
 <br />
 
@@ -169,7 +169,7 @@ history = model.fit(
 )
 ```
 
-<img src="../../../../img/ML/ML-handwritten-digits-009.png" width=1000>
+<img src="../../../../img/ML/handwritten_digits_009.png" width=1000>
 
 나는 이번엔 SGD를 의도적으로 사용했다. Adam으로 Dense값을 조절해서 과적합도 잡아보고 했지만 오차가 의미 있는 수준으로 줄지도 않을 뿐더러 테스트 값에 비슷하게 도달할 수 조차 없어서 어디를 조절해야 할지 고민하다가 저번에 검색할 때 Adam은 이미지 처리에 있어선 SGD보다 좋지 않다는 평가가 있다는 말이 생각이 나서 바꾸어 봤더니 오히려 이번 건에서 만큼은 아주 미약하게나마 테스트 정확도가 학습 정확도보다 높게 나올정도로 잭팟이다.
 
@@ -183,12 +183,12 @@ plt.plot(history.history['loss'])
 plt.plot(history.history['val_loss'])
 ```
 <figure>
-    <img src="../../../../img/ML/ML-handwritten-digits-010.png" width=800>
+    <img src="../../../../img/ML/handwritten_digits_010.png" width=800>
     <figcaption>SGD</figcaption>
 </figure>
 
 <figure>
-    <img src="../../../../img/ML/ML-handwritten-digits-012.png" width=800>
+    <img src="../../../../img/ML/handwritten_digits_012.png" width=800>
     <figcaption>Adam</figcaption>
 </figure>
 
@@ -199,12 +199,12 @@ plt.plot(history.history['val_acc'])
 ```
 
 <figure>
-    <img src="../../../../img/ML/ML-handwritten-digits-011.png" width=800>
+    <img src="../../../../img/ML/handwritten_digits_011.png" width=800>
     <figcaption>SGD</figcaption>
 </figure>
 
 <figure>
-    <img src="../../../../img/ML/ML-handwritten-digits-013.png" width=800>
+    <img src="../../../../img/ML/handwritten_digits_013.png" width=800>
     <figcaption>Adam</figcaption>
 </figure>
 

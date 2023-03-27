@@ -83,7 +83,7 @@ test_gen = test_datagen.flow_from_directory(
   shuffle=False
 )
 ```
-<img src="../../../../img/ML/ML-transfer-learning-001.png" width=350>
+<img src="../../../../img/ML/transfer_learning_001.png" width=350>
 
 <br />
 
@@ -92,7 +92,7 @@ test_gen = test_datagen.flow_from_directory(
 pprint(train_gen.class_indices)
 ```
 
-<img src="../../../../img/ML/ML-transfer-learning-002.png" width=150>
+<img src="../../../../img/ML/transfer_learning_002.png" width=150>
 
 <br />
 
@@ -113,7 +113,7 @@ plt.title(str(preview_labels[0]))
 plt.imshow(preview_imgs[0])
 ```
 
-<img src="../../../../img/ML/ML-transfer-learning-003.png" width=250>
+<img src="../../../../img/ML/transfer_learning_003.png" width=250>
 
 <br />
 
@@ -137,7 +137,7 @@ model.compile(loss='categorical_crossentropy', optimizer=SGD(learning_rate=0.001
 model.summary()
 ```
 
-<img src="../../../../img/ML/ML-transfer-learning-004.png" width=670>
+<img src="../../../../img/ML/transfer_learning_004.png" width=670>
 
 학습을 시키고 ModelCheckpoint를 이용하여 학습 결과 저장을 하는데 .h5 형식의 파일로 저장을 한다. 파라미터는 val_acc 값을 주시하고 최고값만 저장하게 설정한다. verbose=1은 저장시 저장했음을 알려달라는 얘기
 ```py
@@ -151,7 +151,7 @@ history = model.fit(
 )
 ```
 
-<img src="../../../../img/ML/ML-transfer-learning-005.png" width=890>
+<img src="../../../../img/ML/transfer_learning_005.png" width=890>
 
 <br />
 
@@ -166,7 +166,7 @@ axes[0].legend()
 axes[1].legend()
 ```
 
-<img src="../../../../img/ML/ML-transfer-learning-006.png" width=1200>
+<img src="../../../../img/ML/transfer_learning_006.png" width=1200>
 
 <br />
 
@@ -190,7 +190,7 @@ for img, test_label, pred_label, ax in zip(test_imgs, test_labels, y_pred, axes.
   ax.imshow(img)
 ```
 
-<img src="../../../../img/ML/ML-transfer-learning-007.png" width=1500>
+<img src="../../../../img/ML/transfer_learning_007.png" width=1500>
 
 <br />
 
@@ -202,7 +202,7 @@ model = load_model('model.h5')
 print('Model loaded!')
 ```
 
-<img src="../../../../img/ML/ML-transfer-learning-008.png" width=120>
+<img src="../../../../img/ML/transfer_learning_008.png" width=120>
 
 <br />
 
@@ -244,7 +244,7 @@ for img, pred_label, ax in zip(target_imgs, predicted, axes.flatten()):
   ax.imshow(img)
 ```
 
-<img src="../../../../img/ML/ML-transfer-learning-009.png" width=1500>
+<img src="../../../../img/ML/transfer_learning_009.png" width=1500>
 
 <br />
 

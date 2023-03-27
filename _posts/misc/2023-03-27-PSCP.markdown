@@ -1,0 +1,36 @@
+---
+layout: post
+title: PSCP 사용법
+date: 2023-03-27 15:05:30 +0900
+category: Misc.
+---
+
+먼저 [Putty 공홈](https://www.putty.org/)에 가면 pscp를 다운할 수 있다.
+
+pscp는 cmd를 이용해서 pscp가 위치한 곳으로 진입한 다음 사용하면 된다.
+
+<br />
+
+보내는 법
+
+```
+pscp -P Port_Num File.Extension To_Username@To_IP:File_Location/File.Extension
+```
+
+e.g.) hadoop-3.3.2.tar.gz 파일을 VM에 전송할 때 썼던 구문인 것 같다.
+```
+C:\Users\%USERPROFILE%\Desktop>pscp -P 22 hadoop-3.3.2.tar.gz my_id@127.0.0.1:/home/my_id
+```
+
+<br />
+
+받는 법
+
+```
+pscp -P Port_Num From_Username@From_IP:File_Location/File.Extension File.Extension
+```
+
+e.g.) hadoop hive sql 테스트 문을 VM에서 받아올 때 썼던 구문인 것 같다.
+```
+C:\Users\%USERPROFILE%\Desktop>pscp -P 22 hdoop@127.0.0.1:/home/hdoop/test001.sql test001.sql
+```

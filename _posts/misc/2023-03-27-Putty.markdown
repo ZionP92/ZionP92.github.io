@@ -1,0 +1,42 @@
+---
+layout: post
+title: Putty 연결 및 이모저모
+date: 2023-03-27 14:08:55 +0900
+category: Misc.
+---
+
+Putty를 연결하려면 먼저 서버에 기초적인 세팅을 해야 한다. 아래는 기본적으로 내가 사용하는 Ubuntu 환경으로 진행하였다.
+
+```sh
+sudo apt-get install openssh-server
+```
+
+<br />
+
+SSH 기본 포트는 22번이나 보안을 위해 바꿔주도록 하자. 아래와 같이 진입하면 #Port 22라고 코멘트 처리 되어있는데 언코멘트하고 숫자 4~5자리 안에서 임의로 바꾸면 된다. (참고: 포트 번호는 기본적으로 16bit 정보임으로 2의 16제곱까지 곧 0~65535까지이고 사용할 수 없는 번호들도 있다. 예를 들면 0번은 시스템에서 할당이 되어있기에 사용할 수 없다. 자세한 내용은 [위키피디아](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers#) 참조)
+
+```sh
+sudo vi /etc/ssh/sshd_config
+```
+<br />
+
+다음은 SSH가 작동하고 있는지 볼 수 있는 상태 출력, 시동, 종료 및 재시작 명령어들이다. (우분투 버전이 15.04이상이면 sudo systemctl status ssh 형식의 명령어로 해도 된다.)
+
+```sh
+sudo service ssh status
+sudo service ssh start
+sudo service ssh stop
+sudo service ssh restart
+```
+
+<br />
+
+iptables나 ufw 등등 방화벽이 있다면 앞에서 지정한 SSH 포트 번호를 예외 처리해 주어야 한다.
+Putty를 [여기](https://www.putty.org/)에서 다운받은 후 실행시키면 아래와 같은 화면이 나온다. 바로 보이는 곳에 IP를 기입하고 포트번호를 설정한뒤 Open을 누르면 된다.
+
+<img src="../../../../img/misc/putty_001.png" width=400>
+
+<br /> 
+
+그 밖에 서버 계정을 연결 후에 입력하지 않고 바로 진입하려면 Connection 아래있는 Data에 보면 Auto-login username란을 이용하면 된다. 참고로 비밀번호 저장은 할 수 없는 것 같다.
+또한 위의 사진에서 보이는 세션 저장 부분을 이용하면 아이피, 포트, 아이디 등등 모든 것을 매번 번거롭지 않게 저장해서 이용할 수 있다.
